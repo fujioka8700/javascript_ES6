@@ -1,0 +1,1 @@
+# JavaScript ES6 の復習です。
