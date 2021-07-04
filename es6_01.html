@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcmaScript6から追加される、関数周りの新仕様</title>
+</head>
+<body>
+    <script>
+        // デフォルト引数
+        hoge1(5)
+        function hoge1(i, j=10) {
+            console.log('引数は' + i);
+            console.log('デフォルト引数は' + j);
+        }
+
+        // 可変長引数
+        hoge2(1, 2, 3, 4, 5)
+        function hoge2(...args) {
+            for (const hoge in args) {
+                console.log(hoge);
+            }
+        }
+
+        // アロー記法
+        var hoge3 = function (x) {
+            return x * 2
+        }
+        console.log(hoge3(3));
+        // ↓
+        // var hoge4 = (x) => {
+        //     return x * 2
+        // }
+        // ↓
+        // var hoge4 = (x) => { return x * 2 }
+        // ↓
+        // 引数が1つなら、()を省略して、処理がreturnなら以下のように書ける
+        var hoge4 = x => x * 2
+        console.log(hoge4(4));
+
+        // スコープ
+        function hoge5() {
+            'use strict'
+            a = 123 // error
+        }
+        // console.log(a);
+
+        function hoge6() {
+            let hoge7 = 'hogehoge'
+        }
+        // hoge6(hoge7) // error
+    </script>
+</body>
+</html>

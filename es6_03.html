@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>継承</title>
+</head>
+
+<body>
+    <script>
+        // 継承
+
+        // 親
+        var Animal = function (_name) {
+            this.name = _name
+        }
+        Animal.prototype.bark = function () {
+            console.log(this.name + '!!');
+        }
+        // 子
+        var Lion = function (_name) {
+            this.name = _name
+        }
+
+        // 継承
+        Lion.prototype = new Animal('アニマル')
+        var lion = new Lion('らいおん')
+
+        // ライオンオブジェクトはbarkメソッドを所有していないが、
+        // Animalのprototpeを継承して、自分が所有しているかのように、
+        // 親のメソッドを継承して使用できる。
+        lion.bark() // らいおん!!
+    </script>
+</body>
+
+</html>

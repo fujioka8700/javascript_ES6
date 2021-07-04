@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // ホイスティング（変数の巻き上げ）
+        var hoge1 = 'グローバル'
+        function fuga1() {
+            // var hoge1
+            console.log(hoge1); // hoge1 は未定義になる
+            var hoge1 = 'ローカル'
+        }
+        fuga1()
+
+        // prototype
+        // prototypeとして扱いたい関数は、頭文字を大文字にするのが慣例
+        var Animal = function () {} // 関数
+        Animal.prototype.name = function (name) {
+            console.log(name);
+        }
+        // インスタンスはnewで生成される
+        var lion = new Animal()    // ライオンインスタンス
+        lion.name('ライオン')
+
+        var usagi = new Animal()   // うさぎインスタンス
+        usagi.name('うさぎ')
+    </script>
+</body>
+
+</html>

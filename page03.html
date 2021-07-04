@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ＪavaＳcript主な機能</title>
+    <title>JavaScript主な機能</title>
 </head>
 <body>
     <script>
@@ -22,7 +22,29 @@
         var ary = new Array(1, 2, 3)
         console.log(ary instanceof Array);
 
-        console.log(ary.prototype)
+        // ラッパーオブジェクト 
+        // "hoge"はオブジェクトのprototypeが保有するlengthAPIにアクセス可能
+        console.log("hoge".length)
+
+        // 関数宣言
+        // 関数宣言は、スクリプトの実行前に、関数が評価される
+        f('関数宣言です')
+        function f (str) {
+            console.log(str);
+        }
+
+        // 関数式
+        // 無名関数(匿名関数)をf1変数に入れる
+        // 宣言前にコールできない
+        var f1 = function (str){
+            console.log('関数式' + str);
+        }
+        f1('です')
+
+        // 即時関数 ない？
+        // (function(str){
+        //     console.log(str + 'だ');
+        // })('即時関数')
     </script>
 </body>
 </html>
