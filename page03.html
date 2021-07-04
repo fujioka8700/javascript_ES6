@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ＪavaＳcript主な機能</title>
+</head>
+<body>
+    <script>
+        // オブジェクト
+        var hoge = new Object()
+
+        // オブジェクトのプロパティ 同義
+        // hoge.fuga = 'フガフガ'
+        hoge = { fuga: 'フガフガ' }
+
+        // データの型を調べる
+        console.log(typeof hoge.fuga);
+
+        // どのコンストラクタで、生成されたインスタンスなのか判定する
+        var ary = new Array(1, 2, 3)
+        console.log(ary instanceof Array);
+
+        console.log(ary.prototype)
+    </script>
+</body>
+</html>

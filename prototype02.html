@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 関数以外は子自身に定義
+        function Dog(cry) {
+            this.cry = cry
+        }
+
+        // プロトタイプ（親）に汎用的な関数を定義
+        Dog.prototype.bark = function() {
+            console.log(this.cry);
+        }
+
+        var chiwawa = new Dog('きゃんきゃん')
+        // インスタンス（子）はみんなで仲良くその一つを使う
+        chiwawa.bark()
+
+        var shiba = new Dog('わんわん')
+        // インスタンス（子）はみんなで仲良くその一つを使う
+        shiba.bark()
+    </script>
+</body>
+</html>

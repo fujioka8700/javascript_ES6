@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function proto() {}
+
+        console.log(proto);
+
+        // prototypeプロパティが自動で作成される。
+        console.log(proto.prototype);
+        console.log(typeof proto);
+
+        /*************************************************/
+
+        function Dog() {}
+
+        // こちらがbetter
+        Dog.prototype.bark = function(){
+            console.log('わんわん');
+        }
+
+        var dog = new Dog();
+        dog.bark(); // わんわん
+
+        /*************************************************/
+
+        // 毎回毎回、関数が生成される
+        function Cat() {
+            // var this = {} // 暗黙のルール。毎回空のオブジェクトを作成
+            this.crows = function () {
+                console.log('ニャー');
+            }
+            // return this
+        }
+
+        var cat = new Cat();
+        cat.crows()
+    </script>
+</body>
+</html>
