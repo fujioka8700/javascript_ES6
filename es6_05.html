@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オーバーライド</title>
+</head>
+
+<body>
+    <script>
+        // オーバーライド
+        // 親
+        let Fruit = function(_name) {
+            this.name = _name
+        }
+        Fruit.prototype.color = function (_color) {
+            console.log(this.name + 'は' + _color + '色です');
+        }
+        // 子
+        let Apple = function () {}
+
+        // 継承
+        Apple.prototype = new Fruit('フルーツ')
+
+        // オーバーライド
+        Apple.prototype.color = function (_color) {
+            console.log(this.name + 'は' + _color + '色ではありません！');
+        }
+
+        let apple = new Apple('りんご')
+        apple.color('赤')
+    </script>
+</body>
+
+</html>
