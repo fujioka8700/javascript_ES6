@@ -13,7 +13,35 @@
         // thisを読み解く時は、どこに記載されているかよりも、誰が実行しているかを重点的に見る
         console.log(this instanceof Window);
 
-        // 復習の続きはここから
+        // メソッドと関数とthis
+        // メソッド内のthisと、関数内のthisでは、結果が異なる。
+        // オブジェクトが内包するfunction
+        var hoge = {
+            disp: function() {
+                console.log('Hello');
+                console.log(this); // メソッド内のthisはそのオブジェクト自身になる
+            }
+        }
+        hoge.disp()
+
+        // 関数
+        // オブジェクト外のfunction
+        function disp() {
+            console.log('How are you?'); // 関数内のthisはWindowになる
+            console.log(this);
+        }
+        disp()
+
+        // 関数参照による、関数呼び出しのthis
+        var hoge2 = {
+            disp: function() {
+                console.log("I'm fine.");
+            }
+        }
+        console.log(hoge2.disp) // 関数参照を表示
+        var fuga = hoge2.disp   // 参照をfuga変数に渡して、
+        fuga()                  // fugaとして関数を実行。
+
     </script>
 </body>
 </html>
