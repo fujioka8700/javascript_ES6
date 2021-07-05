@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>インスタンスとthis</title>
+</head>
+<body>
+    <script>
+        // インスタンスとthis
+        var Animal = function(_name){
+            this.name = _name
+            console.log(this); // インスタンス内のthisは、インスタンス自身となる
+        }
+
+        var lion = new Animal('ライオン') // newされたオブジェクトは、インスタンスとなる
+        console.log(lion.name);
+
+        // prototypeメソッド内のthis
+        var Fruit = function() {
+            this.name = 'りんご'
+        }
+        Fruit.prototype.show = function() {
+            // prototypeメソッド内のthisは、メソッドを実行したインスタンス自身
+            console.log(this.name);
+            console.log(this);
+        }
+
+        var apple = new Fruit
+        apple.show()
+    </script>
+</body>
+</html>
