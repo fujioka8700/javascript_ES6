@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>コールバックとthis</title>
+</head>
+<body>
+    <script>
+        // コールバック関数とthis
+        // コールバック内のthisは、コールバック関数を実行するオブジェクトに依存する。
+        // なので、setTimeoutで時間差実行した際の、thisには注意が必要。
+        // setTimeoutで実行するオブジェクトは、Windowであるため、thisもWindowとなる
+        var hoge = {
+            show: function() {
+                console.log(this instanceof Window);
+            }
+        }
+        hoge.show() // これだとfalse(= thisはhogeオブジェクト)
+        setTimeout(hoge.show, 1000) // これだとthisはWindowなのでtrueになる
+    </script>
+</body>
+</html>
