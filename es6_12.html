@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // JavaScriptのcall()メソッドを説明
+
+        function func() {return this}
+        // call()は指定した、targetObjectのfunctionを、
+        // thisObjのメソッドであるかのように呼び出す。
+        console.log(func.call({hoge:5}))
+
+        var Hoge = function () {
+            this.prop = "Hoge's prop"
+        }
+        Hoge.prototype.hogeFunc = function(){return this.prop}
+
+        var Huga = function() {
+            this.prop = "Huga's prop"
+        }
+        Huga.prototype.hugaFunc = function(){return this.prop}
+
+        var myHoge = new Hoge()
+        // myHogeで、自身のメソッドかのように、hugaFuncを実行している。
+        console.log(Huga.prototype.hugaFunc.call(myHoge));
+
+        var myHuga = new Huga()
+        // myHogeで、自身のメソッドかのように、hugaFuncを実行している。
+        console.log(myHuga.hugaFunc.call(myHoge));
+    </script>
+</body>
+</html>
