@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function.prototype.bind()</title>
+</head>
+<body>
+    <script>
+        var module = {
+            x: 42,
+            getX: function() {
+                return this.x;
+            }
+        }
+
+        const unboundGetX = module.getX
+        console.log(unboundGetX());
+
+        // unboundGetXオブジェクトに、moduleをbindしている
+        const boundGetX = unboundGetX.bind(module)
+        console.log(boundGetX());
+    </script>
+</body>
+</html>

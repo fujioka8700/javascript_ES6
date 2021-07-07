@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="es6_15_hoge"></div>
+
+    <script>
+        var str = ['すごい', '強い', '宇宙一']
+        var Hoge = function(_name){
+            this.name = _name
+        }
+        Hoge.prototype.hogeFunc = function (yabasa) {
+            console.log(typeof yabasa);
+            return yabasa + this.name + 'さんです。';
+        }
+        var Huge = function (_name) {
+            this.name = _name
+        }
+
+        var myHoge = new Hoge('鉄尾')
+        var myHuga = new Huge('アキラ')
+
+        // document.getElementById('es6_15_hoge').textContent = myHoge.hogeFunc()
+        document.getElementById('es6_15_hoge').textContent = myHoge.hogeFunc.apply(myHuga, str)
+    </script>
+</body>
+</html>

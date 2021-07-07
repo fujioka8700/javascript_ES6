@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bind と this</title>
+</head>
+<body>
+    <script>
+        // bindのサンプル
+        var myObj = {
+            message: 'こんにちは',
+            show: function () {
+                console.log(this.message);
+            }
+        }
+
+        setTimeout(myObj.show.bind(myObj), 100);
+
+        // bindのサンプル2
+        // say関数を用意し、bindで「煌太郎」という文字をthisに割り当てる。
+        // say関数の中のthisが、「煌太郎」という文字として扱われる。
+        function say() {
+            console.log('こんにちは' + this + 'です。');
+        }
+        var taro = say.bind('煌太郎')
+        taro()
+
+        // bindのサンプル3
+        // say関数を用意し、bindで「null, 10, 20, 30」という値を割り当てる。
+        // thisを指定しない場合、bindの第一引数にnullを設定する。
+        function sum(x, y, z) {
+            return x + y + z
+        }
+        var keisan = sum.bind(null, 10, 20, 30)
+        console.log(keisan());
+    </script>
+</body>
+</html>

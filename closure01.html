@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クロージャについて</title>
+</head>
+
+<body>
+    <script>
+        // クロージャ
+        // 自分を囲むスコープにある変数を参照できる関数
+
+        function func() {
+            var value = 1
+
+            // 内側の関数が、外側の関数の変数を参照できている
+            function innerFunc() {
+                value++
+            }
+
+            innerFunc()
+            console.log(value); // 2
+        }
+
+        func()
+    </script>
+</body>
+
+</html>

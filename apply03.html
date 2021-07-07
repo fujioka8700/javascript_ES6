@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const features = ['鳥', '黄色', '小さい']
+
+        class Object {
+            constructor(_name) {
+                this.name = _name
+            }
+            showDisp(animal, color = '黒', size = '普通') {
+                console.log(this.name + 'は、' + animal + 'で' + color + 'で' + size + 'です。');
+            }
+        }
+        class Object2 {
+            constructor(_name) {
+                this.name = _name
+            }
+        }
+
+        let obj1 = new Object('ピヨ太郎')
+        obj1.showDisp('鳥')
+
+        let obj2 = new Object2('ピヨピヨマン')
+        obj1.showDisp.call(obj2, '人間') // obj2で、showDispをcall実行
+
+        let obj3 = new Object2('ピヨ子')
+        obj1.showDisp.apply(obj3, features) // obj3で、showDispをapply実行
+    </script>
+</body>
+
+</html>

@@ -1,14 +1,58 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
+    <ul>
+        <li>りんご:100円</li>
+        <li>オレンジ:80円</li>
+        <li>パイナップル:300円</li>
+    </ul>
+
+    <ul id="fruitDisp"></ul>
+
     <script>
-        
+        var fruits = [{
+                name: 'りんご',
+                price: '100'
+            },
+            {
+                name: 'オレンジ',
+                price: '80'
+            },
+            {
+                name: 'パイナップル',
+                price: '300'
+            },
+        ]
+
+        class Fruit {
+            constructor() {
+                this.fruits = fruits
+            }
+            fruitDisp(fruits) {
+                for (const fruit of this.fruits) {
+                    var listItem = document.createElement('li')
+                    listItem.textContent = fruit['name'] + ':' + fruit['price'] + '円'
+                    document.getElementById('fruitDisp').appendChild(listItem)
+                }
+            }
+        }
+
+        fruits.push({
+            name: 'メロン',
+            price: '3500'
+        })
+
+        var fruits = new Fruit()
+        fruits.fruitDisp()
     </script>
 </body>
+
 </html>

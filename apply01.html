@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <table border="1" cellspacing="0" cellpading="0">
+        <thead>
+            <tr class="head">
+                <td>男子</td>
+            </tr>
+        </thead>
+
+        <tbody id="deta1">
+        </tbody>
+
+    </table>
+
+    <table border="1" cellspacing="0" cellpading="0">
+        <thead>
+            <tr class="head">
+                <td>女子</td>
+            </tr>
+        </thead>
+
+        <tbody id="deta2">
+        </tbody>
+
+    </table>
+
+    <script>
+        // 関数定義
+        function fnc() {
+            var num = 1;
+            for (var j = 0; j < arguments.length; j++) {
+                var tr = document.createElement("tr");
+                var td = document.createElement("td");
+                td.innerHTML = arguments[j];
+                tr.appendChild(td);
+                this.appendChild(tr);
+                num++;
+            }
+        }
+
+        // 配列の生成
+        var args = ['阿部太郎', '加藤大輔', '佐藤勇気', '田中雅弘', '長島貴之'];
+        var args2 = ['伊藤文代', '木村由美子', '清水絵里', '茅原梓', '西島和美'];
+
+        // 関数を呼び出す
+        var deta1 = document.getElementById("deta1");
+        var deta2 = document.getElementById("deta2");
+        fnc.apply(deta1, args);
+        fnc.apply(deta2, args2);
+    </script>
+</body>
+
+</html>
