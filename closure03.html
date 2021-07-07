@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var count = 3 // setIntervalの終了時間
+
+        var createTimer = function () {
+            var count = 3 // timerのカウントダウン
+
+            return {
+                countDown: function () {
+                    count--
+                },
+                show: function () {
+                    console.log(count);
+                }
+            }
+        }
+
+        var timer = new createTimer()
+
+        const intervalId = setInterval(() => {
+            console.log(count);
+            timer.show()
+            timer.countDown()
+            count--
+            if (count < 0) {
+                clearInterval(intervalId)
+                console.log('カウント終了');
+            }
+        }, 1000);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クロージャの実践例</title>
+</head>
+<body>
+    <script>
+        // 即時関数を用いてオブジェクトを生成
+        // moduleにはreturnされている、オブジェクトが代入される
+        var module = (function(){
+            var count = 0
+
+            // 即時関数内のcountに関しては、内側からしか参照できない
+            return {
+                increment: function () {
+                    count++
+                },
+                show: function() {
+                    console.log(count);
+                }
+            }
+        })()
+
+        module.show()
+
+        module.increment()
+
+        module.show()
+
+        // 外側からアクセスしようとした場合、undefined
+        console.log(count);
+    </script>
+</body>
+</html>
