@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">ボタン</button>
+
+    <script>
+        var hoge = (function(){
+            var a = 0
+            return function() {
+                console.log(++a);
+            }
+        })()
+
+        hoge()
+        hoge()
+        hoge()
+
+        var Huga = function() {
+            var count = 0
+            return {
+                func: function() {
+                    return ++count
+                }
+            }
+        }
+
+        var myhuga = new Huga()
+        console.log(myhuga.func())
+        console.log(myhuga.func())
+        console.log(myhuga.func())
+
+        var btns = document.getElementsByName('btn')
+
+    </script>
+</body>
+</html>

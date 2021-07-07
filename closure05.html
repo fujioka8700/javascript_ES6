@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>よくあるクロージャの例</title>
+</head>
+
+<body>
+    <button name="btn">ボタン1</button>
+    <button name="btn">ボタン2</button>
+    <button name="btn">ボタン3</button>
+    <script>
+        var btns = document.getElementsByName('btn')
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].addEventListener('click', (function (x) {
+                return function () {
+                    this.innerHTML = x + 1
+                }
+            })(i))
+        }
+    </script>
+</body>
+
+</html>
